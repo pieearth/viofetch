@@ -28,54 +28,66 @@ const char *get_keyboard_name(USHORT country_code) {
 }
 
 void draw_os2_logo(void) {
-    /* Diamond top cap */
-    print_color(1, 10, "    /\\    ", 0x08);
-    print_color(2,  8, "  /    \\  ", 0x08);
-    print_color(3,  6, " /        \\ ", 0x08);
+    /* Diamond outline */
+    print_color(1, 16, "/\\", 0x08);
 
-    /* Row 4: Upper loops of O, S, /, 2 */
-    print_color(4,  4, "/  ", 0x08);
-    print_color(4,  7, "\xDC\xDF\xDF\xDF\xDC", 0x0E);   /* O top arc:    ▄▀▀▀▄  (Yellow) */
-    print_color(4, 13, "\xDC\xDF\xDF\xDF\xDC", 0x0C);   /* S top arc:    ▄▀▀▀▄  (Red)    */
-    print_color(4, 19, "  \xDC\xDF",       0x0E);   /* / top:          ▄▀   (Yellow) */
-    print_color(4, 23, "\xDC\xDF\xDF\xDF\xDC", 0x0C);   /* 2 top hook:   ▄▀▀▀▄  (Red)    */
-    print_color(4, 28, " \\", 0x08);
+    print_color(2, 10, "/",  0x08);
+    print_color(2, 22, "\\", 0x08);
+
+    print_color(3,  7, "/",  0x08);
+    print_color(3, 26, "\\", 0x08);
+
+    print_color(4,  5, "/",  0x08);
+    print_color(4, 29, "\\", 0x08);
+
+    print_color(5,  4, "/",  0x08);
+    print_color(5, 30, "\\", 0x08);
+
+    print_color(6,  3, "<",  0x08);
+    print_color(6, 31, ">",  0x08);
+
+    print_color(7,  4, "\\", 0x08);
+    print_color(7, 30, "/",  0x08);
+
+    print_color(8,  5, "\\", 0x08);
+    print_color(8, 29, "/",  0x08);
+
+    print_color(9,  7, "\\", 0x08);
+    print_color(9, 26, "/",  0x08);
+
+    print_color(10, 10, "\\", 0x08);
+    print_color(10, 22, "/", 0x08);
+
+    print_color(11, 16, "\\/", 0x08);
+
+    /* Row 4: Upper loops */
+    print_color(4,  7, "\xDC\xDF\xDF\xDF\xDC", 0x0E);
+    print_color(4, 13, "\xDC\xDF\xDF\xDF\xDC", 0x0C);
+    print_color(4, 19, "  \xDC\xDF", 0x0E);
+    print_color(4, 23, "\xDC\xDF\xDF\xDF\xDC", 0x0C);
 
     /* Row 5: Upper vertical segments */
-    print_color(5,  2, "/   ", 0x08);
-    print_color(5,  6, "\xDB     \xDB", 0x0E);          /* O sides:      █   █  (Yellow) */
-    print_color(5, 13, "\xDB    ",       0x0C);          /* S left bar:   █      (Red)    */
-    print_color(5, 20, "\xDC\xDF ",      0x0E);          /* / mid-high:    ▄▀    (Yellow) */
-    print_color(5, 27, "\xDB",           0x0B);          /* 2 right bar:      █  (Cyan)   */
-    print_color(5, 29, "   \\", 0x08);
+    print_color(5,  6, "\xDB     \xDB", 0x0E);
+    print_color(5, 13, "\xDB    ", 0x0C);
+    print_color(5, 20, "\xDC\xDF ", 0x0E);
+    print_color(5, 27, "\xDB", 0x0B);
 
     /* Row 6: Center transitions */
-    print_color(6,  1, "<    ", 0x08);
-    print_color(6,  6, "\xDB     \xDB", 0x0C);          /* O sides:      █   █  (Red)    */
-    print_color(6, 14, "\xDF\xDF\xDF\xDC ", 0x0B);      /* S mid bridge:  ▀▀▀▄  (Cyan)   */
-    print_color(6, 19, "\xDC\xDF  ",     0x0E);          /* / center:     ▄▀     (Yellow) */
-    print_color(6, 25, "\xDC\xDF\xDF  ", 0x0B);          /* 2 diagonal:   ▄▀▀    (Cyan)   */
-    print_color(6, 31, " >", 0x08);
+    print_color(6,  6, "\xDB     \xDB", 0x0C);
+    print_color(6, 14, "\xDF\xDF\xDF\xDC ", 0x0B);
+    print_color(6, 19, "\xDC\xDF  ", 0x0E);
+    print_color(6, 25, "\xDC\xDF\xDF  ", 0x0B);
 
-    /* Row 7: Lower segments & bottom hooks */
-    print_color(7,  2, "\\   ", 0x08);
-    print_color(7,  7, "\xDF\xDC\xDC\xDC\xDF", 0x0C);   /* O bottom arc: ▀▄▄▄▀  (Red)    */
-    print_color(7, 17, "\xDB",           0x0B);          /* S lower right:    █  (Cyan)   */
-    print_color(7, 18, "\xDC\xDF  ",     0x0E);          /* / mid-low:    ▄▀     (Yellow) */
-    print_color(7, 23, "\xDC\xDF\xDF    ", 0x0B);        /* 2 diag-low:   ▄▀▀    (Cyan)   */
-    print_color(7, 29, "   /", 0x08);
+    /* Row 7: Lower segments */
+    print_color(7,  7, "\xDF\xDC\xDC\xDC\xDF", 0x0C);
+    print_color(7, 17, "\xDB", 0x0B);
+    print_color(7, 18, "\xDC\xDF  ", 0x0E);
+    print_color(7, 23, "\xDC\xDF\xDF    ", 0x0B);
 
-    /* Row 8: Bases of S and 2 */
-    print_color(8,  4, "\\  ", 0x08);
-    print_color(8, 13, "\xDF\xDC\xDC\xDC\xDF", 0x0B);   /* S bottom arc: ▀▄▄▄▀  (Cyan)   */
-    print_color(8, 19, "\xDF   ",        0x0E);          /* / base:       ▀      (Yellow) */
-    print_color(8, 23, "\xDF\xDF\xDF\xDF\xDF\xDF", 0x0E);/* 2 flat base: ▀▀▀▀▀▀ (Yellow) */
-    print_color(8, 28, " /", 0x08);
-
-    /* Diamond bottom closure */
-    print_color(9,   6, " \\        / ", 0x08);
-    print_color(10,  8, "  \\    /  ",   0x08);
-    print_color(11, 10, "    \\/    ",   0x08);
+    /* Row 8: Bases */
+    print_color(8, 13, "\xDF\xDC\xDC\xDC\xDF", 0x0B);
+    print_color(8, 19, "\xDF   ", 0x0E);
+    print_color(8, 23, "\xDF\xDF\xDF\xDF\xDF\xDF", 0x0E);
 }
 
 int main(void) {
